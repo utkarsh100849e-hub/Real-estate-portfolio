@@ -169,7 +169,7 @@
 }
 
     /* Testimonials */
-    #testimonials {
+#testimonials {
   text-align: center;
   background: #f5f5f5;
   padding: 60px 10%;
@@ -180,6 +180,7 @@
   margin-bottom: 10px;
   text-align: center;
 }
+
 .testimonial-hotspot {
   width: 12px;
   height: 12px;
@@ -187,51 +188,71 @@
   border-radius: 50%;
   margin: 0 auto 20px auto; /* centered below title */
 }
-    .testimonial-carousel {
+
+.testimonial-carousel {
   max-width: 700px;
   margin: 0 auto;
   position: relative;
   min-height: 180px;
 }
-    .testimonial {
+
+.testimonial {
   display: none;
   font-size: 1.2rem;
   color: #555;
   padding: 10px 20px;
 }
- .testimonial.active {
+
+.testimonial.active {
   display: block;
   animation: fade 1s ease-in-out;
 }
 
-.testimonial h4 {
-  font-size: 1.1rem;
+.testimonial p {
+  margin-bottom: 20px;
+}
+
+.testimonial-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 10px;
+}
+
+.testimonial-footer h4 {
+  margin: 0;
+  font-size: 1.1rem;
   color: #222;
 }
 
-    @keyframes fade {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-    .testimonial-nav {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.testimonial-nav button {
+.testimonial-footer button {
   background: #333;
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 0.95rem;
 }
 
-.testimonial-nav button:hover {
+.testimonial-footer button:hover {
   background: #0077b6;
+}
+
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* Mobile adjustments */
+@media (max-width: 720px) {
+  #testimonials {
+    padding: 40px 6%;
+  }
+  #testimonials h2 { font-size: 2rem; }
+  .testimonial p { font-size: 1rem; }
+  .testimonial-footer h4 { font-size: 1rem; }
+  .testimonial-footer button { padding: 5px 10px; font-size: 0.9rem; }
 }
 
     /* Properties */
@@ -457,27 +478,35 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section id="testimonials">
+<!-- Testimonials Section -->
+<section id="testimonials">
   <h2>Testimonials</h2>
   <div class="testimonial-hotspot"></div> <!-- small hotspot below title -->
   <div class="testimonial-carousel">
     <div class="testimonial active">
       <p>"The team was fantastic!"</p>
-      <h4>- Sarah K.</h4>
+      <div class="testimonial-footer">
+        <button onclick="prevTestimonial()">&#10094; Prev</button>
+        <h4>- Sarah K.</h4>
+        <button onclick="nextTestimonial()">Next &#10095;</button>
+      </div>
     </div>
     <div class="testimonial">
       <p>"Professional and reliable service."</p>
-      <h4>- John D.</h4>
+      <div class="testimonial-footer">
+        <button onclick="prevTestimonial()">&#10094; Prev</button>
+        <h4>- John D.</h4>
+        <button onclick="nextTestimonial()">Next &#10095;</button>
+      </div>
     </div>
     <div class="testimonial">
       <p>"Amazing experience!"</p>
-      <h4>- Priya S.</h4>
+      <div class="testimonial-footer">
+        <button onclick="prevTestimonial()">&#10094; Prev</button>
+        <h4>- Priya S.</h4>
+        <button onclick="nextTestimonial()">Next &#10095;</button>
+      </div>
     </div>
-  </div>
-  <div class="testimonial-nav">
-    <button onclick="prevTestimonial()">&#10094; Prev</button>
-    <button onclick="nextTestimonial()">Next &#10095;</button>
   </div>
 </section>
 
