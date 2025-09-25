@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Arapey&family=Cormorant+Garamond&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Real Estate Website</title>
@@ -123,11 +124,13 @@
 
     /* About */
     #about {
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;  /* reduced from 80px */
+  padding-bottom: 40px; /* reduced from 80px */
+}
     .about-container {
       display: flex;
       flex-wrap: wrap;
@@ -151,16 +154,19 @@
       object-fit: cover;
       border-radius: 12px;
     }
-    .about-left h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-    .about-left p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #555;
-      margin-bottom: 20px;
-    }
+   .about-left h2 {
+  font-family: "Cormorant Garamond", serif;
+  color: #000;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+  .about-left p {
+  font-family: "Arapey", serif;
+  color: #000;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
 
     /* Testimonials */
     #testimonials {
