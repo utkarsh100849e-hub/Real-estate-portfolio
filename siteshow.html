@@ -12,14 +12,89 @@
       scroll-behavior: smooth; /* enables smooth scrolling */
     }
 
-    /* Top div (buttons/header) */
-    .top-bar {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 15px;
-      background-color: #222;
-    }
+/* Base top bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between; /* align content to right */
+  align-items: center;
+  padding: 15px 20px;
+  background: white;
+  color: black;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+ 
+}
+  .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Desktop nav links */
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links button {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Hamburger hidden on desktop */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Mobile menu (slide in) */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100vh;
+  background: white;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 60px 20px 20px;
+  gap: 20px;
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+.mobile-menu button {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 1.2rem;
+  text-align: left;
+  cursor: pointer;
+}
+.mobile-menu .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: black;
+}
+
+/* Show hamburger + hide nav links on mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+    margin-left:auto;
+  }
+}
 
     .top-bar button {
       padding: 10px 20px;
@@ -54,11 +129,37 @@
       margin: auto;
       line-height: 1.6;
     }
+    /*req button*/
+    .request-section {
+  background: white;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start; /* aligns button to the right */
+
+}
+
+.request-btn {
+  font-family: 'Poppins', sans-serif;
+  background: white;
+  border: 1px solid black;
+  padding: 10px 20px;  /* left & right padding */
+  font-size: 1rem;
+  font-weight: 300;
+  color: black;
+  cursor: pointer;
+  border-radius: 0; /* no rounded corners */
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.request-btn:hover {
+  background: black;
+  color: white;
+}
 
     /* Image section */
     .image-container {
       text-align: center;
-      background-color: #eee;
+      background-color: white;
       padding: 30px 0;
     }
 
@@ -66,31 +167,86 @@
       width: 95%;
       max-width: 1200px;
       height: auto;
-      border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     /* Text section below image */
     .text-section {
-      padding: 50px 20px;
-      background-color: #f2f2f2;
-    }
+  padding: 50px 20px;
+  background-color: white;   /* white background */
+  text-align: left;          /* align text to left */
+  font-family: "adobe-garamond-pro", serif;
+  font-weight: 400;
+}
 
-    .text-section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
+.text-section h2 {
+  font-size: 2rem;
 
-    .text-section p {
-      text-align: center;
-      max-width: 700px;
-      margin: auto;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
+  margin-bottom: 20px;
+  font-weight: 400;          /* normal weight */
+}
+
+.text-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .text-section {
+    padding: 30px 15px;
+  }
+
+  .text-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .text-section p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .text-section p {
+    font-size: 0.95rem;
+  }
+}
+
 
     /* Carousel styles */
+    .carousel-heading {
+  text-align: center;               /* center the heading */
+  margin: 30px 0 10px 0;            /* spacing above/below */
+  font-family: "adobe-garamond-pro", serif; /* same font as others */
+}
+
+.carousel-heading h2 {
+  font-size: 2rem;
+  font-weight: 400;                 /* normal weight */
+  color: black;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-heading h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-heading h2 {
+    font-size: 1.4rem;
+  }
+}
+
     .carousel-container {
       position: relative;
       width: 100vw;
@@ -109,7 +265,7 @@
     .carousel-card {
       flex: 0 0 40%;
       margin: 0 10px;
-      border-radius: 10px;
+      border-radius: 0px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: transform 0.5s ease;
@@ -124,6 +280,7 @@
     .carousel-card img {
       width: 100%;
       display: block;
+      border-radius: 0;
     }
 
     .property-info {
@@ -141,6 +298,37 @@
       font-size: 1rem;
       color: #555;
     }
+    @media (max-width: 768px) {
+  .carousel-container {
+    padding: 30px 0;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .carousel-card {
+    flex: 0 0 100%;  /* each card takes full width */
+    margin: 0;
+    border-radius: 0; /* remove rounded corners */
+  }
+
+  .carousel-card.center-card {
+    transform: scale(1); /* no scaling on mobile */
+  }
+
+  .carousel-card img {
+    width: 100%;
+    border-radius: 0; /* remove rounded corners */
+  }
+
+  .prev, .next {
+    font-size: 2rem;
+    padding: 10px 15px;
+  }
+}
+
 
     /* Carousel buttons */
     .prev, .next {
@@ -160,107 +348,625 @@
     .prev { left: 20px; }
     .next { right: 20px; }
 
-    /* Info Section Styles */
-    .info-section {
-      padding: 50px 20px;
-      background-color: #f9f9f9;
-    }
+    /* features Styles */
 
-    .info-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+.features-section {
+  display: flex;
+  gap: 40px;
+  padding: 50px 20px;
+  background-color: white;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
 
-    .info-title h2 {
-      font-size: 2rem;
-      margin: 0;
-    }
+.features-text {
+  flex: 1;
+  min-width: 95%;
+  text-align: center; /* center heading and line */
+  margin:0 auto;
+}
 
-    .info-content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      max-width: 1100px;
-      margin: auto;
-    }
+.features-text h2 {
+  font-family: "adobe-garamond-pro", serif;
+  font-weight: 400;
+  color: black;
+  font-size: 3rem;       /* increased size */
+  margin: 0 0 15px 0;
+}
 
-    .info-text {
-      flex: 1;
-      min-width: 300px;
-    }
+.features-line {
+  width: 140px;            /* longer line */
+  height: 2px;
+  background-color: black;
+  margin: 0 auto 25px auto; /* centered and spacing below heading */
 
-    .info-text h3 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-    }
+}
 
-    .info-text p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #555;
-    }
+.features-text ul {
+  list-style: disc;
+  padding-left: 40px;       /* bullet indentation, left-aligned */
+  text-align: left;         /* ensures bullets are aligned to left */
+}
 
-    .info-image {
-      flex: 1;
-      min-width: 300px;
-      text-align: center;
-    }
+.features-text ul li {
+  font-family: "adobe-garamond-pro", serif;
+  font-weight: 400;
+  color: rgb(92, 87, 87);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
 
-    .info-image img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+.features-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
 
-    /* New Image Section */
-    .single-image-section {
-      padding: 50px 20px;
-      background-color: #fff;
-    }
+.features-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 0;
+}
 
-    .single-image-title {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .features-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 15px;
+  }
 
-    .single-image-title h2 {
-      font-size: 2rem;
-      margin: 0;
-    }
+  .features-image img {
+    max-width: 90%;
+  }
 
-    .single-image-container {
-      text-align: center;
-    }
+  .features-text h2 {
+    font-size: 6rem;
+  }
 
-    .single-image-container img {
-      width: 95%;
-      max-width: 1000px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    }
+  .features-text ul li {
+    font-size: 1rem;
+  }
+
+  .features-line {
+    width: 100px; /* slightly smaller on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .features-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .features-text ul li {
+    font-size: 0.95rem;
+  }
+
+  .features-line {
+    width: 80px;
+  }
+}
+    /*floor plan*/
+.floorplan-section {
+  background-color: white;      /* same white background */
+  text-align: center;           /* center heading and image */
+  padding: 50px 20px;
+}
+
+.floorplan-text h2 {
+  font-family: "adobe-garamond-pro", serif;
+  font-weight: 400;
+  font-size: 3rem;              /* same as Features title */
+  color: black;
+  margin: 0 0 15px 0;
+}
+
+.floorplan-line {
+  width: 140px;                 /* same line width as Features */
+  height: 2px;
+  background-color: black;
+  margin: 0 auto 25px auto;     /* centered below title */
+}
+
+.floorplan-image img {
+  width: 80%;                   /* image width 80% of screen */
+  max-width: 800px;             /* optional maximum width */
+  border-radius: 0;             /* no rounded corners */
+  display: block;
+  margin: 0 auto;               /* center the image */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .floorplan-text h2 {
+    font-size: 6rem;
+  }
+
+  .floorplan-line {
+    width: 100px;
+  }
+
+  .floorplan-image img {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .floorplan-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .floorplan-line {
+    width: 80px;
+  }
+
+  .floorplan-image img {
+    width: 95%;
+  }
+}
+
+
+    /* address Section */
+.address-section {
+  background-color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.address-text {
+  max-width: 80%;                 /* width on desktop */
+  margin: 0 auto 30px auto;
+}
+
+.address-text h2 {
+  font-family: "adobe-garamond-pro", serif;
+  font-weight: 400;
+  font-size: 3rem;                 /* same as Features */
+  color: black;
+  margin: 0 0 15px 0;
+}
+
+.address-line {
+  width: 140px;
+  height: 2px;
+  background-color: black;
+  margin: 0 auto 25px auto;
+  
+}
+
+.address-text p {
+  font-family: "adobe-garamond-pro", serif;
+  font-weight: 400;
+  color: rgb(92, 87, 87);
+  font-size: 1.1rem;
+  margin: 0;
+  text-align: left;
+  
+}
+
+.address-image img {
+  width: 80%;                      /* desktop width */
+  max-width: 800px;
+  border-radius: 0;                 /* no rounded corners */
+  display: block;
+  margin: 30px auto 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .address-text {
+    max-width: 90%;
+  }
+
+  .address-text h2 {
+    font-size: 4.5rem;
+  }
+
+  .address-line {
+    width: 100px;
+  }
+
+  .address-text p {
+    font-size: 1rem;
+  }
+
+  .address-image img {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .address-text {
+    max-width: 95%;               /* text width 95% on mobile */
+  }
+
+  .address-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .address-line {
+    width: 80px;
+  }
+
+  .address-text p {
+    font-size: 0.95rem;
+  }
+
+  .address-image img {
+    width: 95%;                   /* image width 95% on mobile */
+  }
+}
+
+    /* General */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1024px) {
+  .carousel-card,
+  .carousel-card.center-card {
+    flex: 0 0 45%; /* 2 cards per row on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Top bar */
+  .top-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Intro text */
+/* Intro section */
+.intro {
+  padding: 50px 20px;
+  background-color: white;   /* always white */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "adobe-garamond-pro", serif; /* global font for intro */
+  border-bottom: 1px solid #ddd;
+}
+
+.intro .label {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgb(133, 133, 136);  /* custom gray */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.intro .property-name {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: black;               /* black */
+  margin: 0;
+}
+
+.intro .details {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: black;               /* black */
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .intro {
+    padding: 30px 15px;
+    gap: 8px;
+  }
+
+  .intro .label {
+    font-size: 0.9rem;
+  }
+
+  .intro .property-name {
+    font-size: 1.8rem;
+  }
+
+  .intro .details {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro .property-name {
+    font-size: 1.5rem;
+  }
+
+  .intro .details {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+
+  /* Carousel → 1 card per row */
+  .carousel-card,
+  .carousel-card.center-card {
+    flex: 0 0 90%;
+    margin: 0 auto;
+  }
+
+  /* Info section stacks vertically */
+  .info-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .info-text, .info-image {
+    flex: 1 1 100%;
+  }
+
+  /* Featured sections */
+  .single-image-section {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro h1 {
+    font-size: 1.5rem;
+  }
+  .intro p, .info-text p {
+    font-size: 0.9rem;
+  }
+  .top-bar button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile menu overlay */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.mobile-menu button {
+  margin: 15px 0;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+/* Book a Visit Section */
+.book-visit {
+  background: white;
+  padding: 40px 20px;
+  text-align: left;
+}
+
+.book-visit h2 {
+  font-family: adobe-garamond-pro, serif;
+  font-weight: 400;
+  font-size: 32px; /* <-- Change title size here */
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.book-visit h2::after {
+  content: "";
+  display: block;
+  width: 120px; /* <-- Change separator line width */
+  height: 2px;
+  background: black;
+  margin: 10px auto;
+}
+
+.form-container {
+  width: 90%;   /* <-- Change overall form width here */
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-container input {
+  font-family: Poppins, sans-serif;
+  font-weight: 300;
+  padding: 12px;      /* <-- Change input height here */
+  width: 100%;        /* <-- Change input width here */
+  border: 1px solid black;
+  background: white;
+  outline: none;
+}
+
+.form-container button {
+  background: white;
+  color: black;
+  border: 1px solid black;
+  padding: 12px 20px;   /* <-- Change button size here */
+  font-family: Poppins, sans-serif;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background: black;
+  color: white;
+}
+/* Success message styles */
+#success-message {
+  display: none; /* hidden by default */
+  margin-top: 15px;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: green;
+}
+
+/* Form Styles */
+.visit-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left; /* Align labels & inputs neatly */
+}
+
+.visit-form input {
+  padding: 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 0;
+  width: 100%;
+}
+
+.visit-form label {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  margin-bottom: -8px; /* bring closer to input */
+  color: rgb(92, 87, 87);
+}
+
+.visit-form button {
+  padding: 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border-radius: 0;
+  margin-top: 10px;
+}
+
+.visit-form button:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .visit-text h2 {
+    font-size: 2.2rem;
+  }
+
+  .visit-line {
+    width: 100px;
+  }
+
+  .visit-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .visit-text {
+    max-width: 95%;
+  }
+
+  .visit-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .visit-line {
+    width: 80px;
+  }
+
+  .visit-text p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .top-bar {
+    justify-content: space-between;
+  }
+
+  .top-bar button {
+    display: none; /* hide normal buttons */
+  }
+
+  .hamburger {
+    display: block; /* show hamburger */
+  }
+}
   </style>
 </head>
 <body>
 
   <!-- Top section with buttons -->
   <div class="top-bar">
-    <button onclick="document.getElementById('home').scrollIntoView({behavior: 'smooth'})">Home</button>
-    <button onclick="document.getElementById('listings').scrollIntoView({behavior: 'smooth'})">Listings</button>
-    <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">About</button>
-    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Contact</button>
+  <div class="nav-links">
+    <button>Home</button>
+    <button>Listings</button>
+    <button>About</button>
+    <button>Contact</button>
   </div>
+  <div class="hamburger">&#9776;</div>
+</div>
+
+<!-- Slide-in menu -->
+<div class="mobile-menu">
+  <div class="close-btn">&times;</div>
+  <button>Home</button>
+  <button>Listings</button>
+  <button>About</button>
+  <button>Contact</button>
+</div>
 
   <!-- Introductory text -->
-  <div class="intro" id="home">
-    <h1>Welcome to My Real Estate Portfolio</h1>
-    <p>
-      Discover premium properties with modern designs and prime locations.
-      Browse my listings to find your dream home or investment opportunity.
-    </p>
-  </div>
+  <div class="intro">
+  <p class="label">For Sale</p>
+  <h1 class="property-name">Modern Villa in Mumbai</h1>
+  <p class="details">4BHK • 3500 sqft • Prime Location</p>
+</div>
+  <!-- req button -->
+   <div class="request-section">
+  <button class="request-btn">Request Showing</button>
+</div>
 
   <!-- Image section -->
   <div class="image-container">
@@ -269,111 +975,120 @@
 
   <!-- Text section below image -->
   <div class="text-section" id="about">
-    <h2>About Our Listings</h2>
+    <h2>Welcome to 21 Marina Blvd,
+a private yet community-forward home in full awareness of its place perched atop the Marina Highlands.</h2>
     <p>
-      We provide carefully curated properties with modern amenities and prime locations.
-      Each listing is hand-picked to ensure you find the perfect home or investment.
+      Perched above a desirable enclave in the Marina Highlands neighborhood, sits a special 1940s split-level property with ever-changing and expansive views, vintage character, and midcentury modern appeal. Bathed in all-day sunlight and framed by tree-lined streets, it’s the kind of home where morning light is cast into sunny corners, where bedroom windows frame canyon views, and where quiet afternoons are spent in awareness of the home and its surroundings.
+
+The heart of this home is its open and flexible living spaces, lined with picture windows and anchored by a clay-tiled fireplace. Two bedrooms and one-and-a-half bathrooms offer comfort and convenience, with period details lovingly preserved throughout. A Merrill & O’Keefe vintage stove, original casement windows, and black-and-white tile flooring in the kitchen nod to the home’s heritage, while the integrative layout provides a spacious and easy flow throughout. 
+
+Multiple outdoor spaces on the street-to-street lot offer a space to feel centered and creative, with plenty of room for gardening, play, and entertaining. A separate, spacious, multi-car garage and workshop, along with basement storage and laundry, add utility and flexibility.
+
+The neighborhood offers both privacy and connection, where kids learn to ride bikes on the street,  where neighbors are out walking their dogs, and where minutes away you’ll find downtown San Rafael, the Marin Yacht Club, Loch Lomond Marina, McNears Beach, the trails at China Camp, and neighborhood favorites like Andy’s Market. Lifestyle, community and convenience - the best of all worlds.
     </p>
   </div>
 
   <!-- Carousel section -->
-  <div class="carousel-container" id="listings">
-    <button class="prev" aria-label="Previous">&#10094;</button>
-    <div class="carousel-track">
-      <div class="carousel-card">
-        <img src="background.webp" alt="Property 1">
-        <div class="property-info">
-          <h3>Luxury Apartment</h3>
-          <p>₹1.2 Cr</p>
-          <p>Delhi, India</p>
-        </div>
-      </div>
-      <div class="carousel-card center-card">
-        <img src="background.webp" alt="Property 2">
-        <div class="property-info">
-          <h3>Modern Villa</h3>
-          <p>₹2.5 Cr</p>
-          <p>Mumbai, India</p>
-        </div>
-      </div>
-      <div class="carousel-card">
-        <img src="background.webp" alt="Property 3">
-        <div class="property-info">
-          <h3>Cozy Apartment</h3>
-          <p>₹90 Lakh</p>
-          <p>Bangalore, India</p>
-        </div>
-      </div>
-      <div class="carousel-card">
-        <img src="background.webp" alt="Property 4">
-        <div class="property-info">
-          <h3>Beachside Villa</h3>
-          <p>₹3.1 Cr</p>
-          <p>Goa, India</p>
-        </div>
-      </div>
-      <div class="carousel-card">
-        <img src="background.webp" alt="Property 5">
-        <div class="property-info">
-          <h3>Penthouse Suite</h3>
-          <p>₹4.5 Cr</p>
-          <p>Delhi, India</p>
-        </div>
-      </div>
-    </div>
-    <button class="next" aria-label="Next">&#10095;</button>
-  </div>
+   <div class="carousel-heading">
+  <h2>Gallery</h2>
+</div>
 
-  <!-- Info Section Below Carousel -->
-  <div class="info-section">
-    <div class="info-title">
-      <h2>Why Choose Us?</h2>
+  <div class="carousel-container">
+  <button class="prev">&#10094;</button>
+  <div class="carousel-track">
+    <div class="carousel-card">
+      <img src="background.webp" alt="Property 1">
     </div>
-    <div class="info-content">
-      <div class="info-text">
-        <h3>Trusted Real Estate Solutions</h3>
-        <p>
-          With years of experience, we bring you properties that combine 
-          modern architecture, prime locations, and long-term value. 
-          Whether you're looking for your dream home or a profitable investment, 
-          we ensure transparency and reliability in every deal.
-        </p>
-      </div>
-      <div class="info-image">
-        <img src="background.webp" alt="Real Estate Info Image">
-      </div>
+    <div class="carousel-card center-card">
+      <img src="background.webp" alt="Property 2">
+    </div>
+    <div class="carousel-card">
+      <img src="background.webp" alt="Property 3">
+    </div>
+    <div class="carousel-card">
+      <img src="background.webp" alt="Property 4">
+    </div>
+    <div class="carousel-card">
+      <img src="background.webp" alt="Property 5">
     </div>
   </div>
+  <button class="next">&#10095;</button>
+</div>
 
-  <!-- New Section With Title + Single Image -->
-  <div class="single-image-section" id="featured">
-    <div class="single-image-title">
-      <h2>Our Featured Property</h2>
-    </div>
-    <div class="single-image-container">
-      <img src="background.webp" alt="Featured Property">
-    </div>
-  </div>
 
-  <!-- Extra Section 1 -->
-  <div class="single-image-section">
-    <div class="single-image-title">
-      <h2>Upcoming Project</h2>
-    </div>
-    <div class="single-image-container">
-      <img src="background.webp" alt="Upcoming Project">
-    </div>
+  <!-- Features-->
+  <div class="features-section">
+  <div class="features-text">
+    <h2>Features</h2>
+    <div class="features-line"></div>
+    <ul>
+      <li>Modern architecture with spacious interiors</li>
+      <li>Prime location near schools and markets</li>
+      <li>Energy-efficient lighting and appliances</li>
+      <li>High-quality flooring and finishes</li>
+      <li>Ample parking and security systems</li>
+    </ul>
   </div>
+  <div class="features-image">
+    <img src="background.webp" alt="Features Image">
+  </div>
+</div>
+<!--Floor plan-->
+  <div class="floorplan-section">
+  <div class="floorplan-text">
+    <h2>Floor Plan</h2>
+    <div class="floorplan-line"></div>
+  </div>
+  <div class="floorplan-image">
+    <img src="background.webp" alt="Floor Plan">
+  </div>
+</div>
 
-  <!-- Extra Section 2 -->
-  <div class="single-image-section" id="contact">
-    <div class="single-image-title">
-      <h2>Luxury Showcase</h2>
-    </div>
-    <div class="single-image-container">
-      <img src="background.webp" alt="Luxury Showcase">
-    </div>
+
+
+<!--Address-->
+<div class="address-section">
+  <div class="address-text">
+    <h2>Address</h2>
+    <div class="address-line"></div>
+    <p>123 Example Street, Prime Location, Cityname, Country</p>
   </div>
+  <div class="address-image">
+    <img src="background.webp" alt="Address Location">
+  </div>
+</div>
+
+<!-- Book a Visit Section -->
+<section class="book-visit">
+  <h2>Book a Visit</h2>
+  <div class="form-container">
+    <form id="visit-form">
+      <!-- Name -->
+      <input type="text" placeholder="Your Name" required>
+
+      <!-- Phone -->
+      <input type="tel" placeholder="Phone Number" required>
+
+      <!-- Email -->
+      <input type="email" placeholder="Email Address" required>
+
+      <!-- From Date -->
+      <label for="from-date">From:</label>
+      <input type="date" id="from-date" name="from-date" required>
+
+      <!-- To Date -->
+      <label for="to-date">To:</label>
+      <input type="date" id="to-date" name="to-date" required>
+
+      <!-- Submit -->
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Success Message -->
+    <p id="success-message">✅ Submitted! Our Team will reach out to you shortly.</p>
+  </div>
+</section>
+
 
   <script>
     const track = document.querySelector('.carousel-track');
@@ -383,15 +1098,15 @@
     let index = 1; // center card
 
     function updateCarousel() {
-      const containerWidth = track.parentElement.offsetWidth;
-      const card = cards[index];
-      const cardWidth = card.offsetWidth;
-      const offset = card.offsetLeft - (containerWidth / 2 - cardWidth / 2);
-      track.style.transform = `translateX(${-offset}px)`;
+  const containerWidth = track.parentElement.offsetWidth;
+  const card = cards[index];
+  const cardWidth = card.offsetWidth;
+  const offset = card.offsetLeft - (containerWidth / 2 - cardWidth / 2);
+  track.style.transform = `translateX(${-offset}px)`;
 
-      cards.forEach(c => c.classList.remove('center-card'));
-      card.classList.add('center-card');
-    }
+  cards.forEach(c => c.classList.remove('center-card'));
+  card.classList.add('center-card');
+}
 
     prevBtn.addEventListener('click', () => {
       if(index > 0) index--;
@@ -405,6 +1120,33 @@
 
     window.addEventListener('resize', updateCarousel);
     updateCarousel();
+    const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const closeBtn = document.querySelector('.mobile-menu .close-btn');
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.style.right = "0px";
+  });
+
+  closeBtn.addEventListener('click', () => {
+    mobileMenu.style.right = "-100%";
+  });
+  // Handle form submission
+  document.getElementById("visit-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // stop page reload
+
+    // Show success message
+    const msg = document.getElementById("success-message");
+    msg.style.display = "block";
+
+    // Clear form
+    this.reset();
+
+    // Hide message after 3 seconds (optional)
+    setTimeout(() => {
+      msg.style.display = "none";
+    }, 3000);
+  });
   </script>
 
 </body>
