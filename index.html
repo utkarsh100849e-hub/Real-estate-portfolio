@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #fff;
+      background:white;
       color: #333;
       scroll-behavior: smooth;
     }
@@ -24,22 +24,43 @@
       justify-content: flex-end; /* for bottom text */
       align-items: flex-end;
     }
+    .logo{
+        max-width:100%;
+        height: auto;
+    }
+    .mobile-logo{
+        max-width:25%;
+        top:6%;
+        left:10%;
 
+    }
     .hotspot {
       position: absolute;
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: rgba(0, 0, 0, 0.6);
+      background:transparent;
       color: white;
       font-size: 0.9vw;
       text-align: center;
       z-index: 3;
       text-decoration: none;
-      border-radius: 6px;
+      border:none;
     }
-
+    /* Transparent hotspots on mobile */
+.mobile-only.hotspot {
+  background: transparent;
+  color: white; /* keep text visible */
+  border: none;
+  font-weight: 500;
+}
+.mobile-text .text-content p {
+  font-family: "Adobe Garamond Pro", serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin: 0;
+}
     /* Sizes */
     .small { width: 4%; height: 4%; }
     .medium { width: 6%; height: 6%; }
@@ -53,10 +74,10 @@
     /* Hamburger button */
     .hamburger {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: 6%;
+      right: 7%;
       font-size: 2rem;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0);
       color: white;
       padding: 8px 14px;
       border-radius: 6px;
@@ -116,7 +137,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      padding: 80px 10%;
+      padding:0;
       box-sizing: border-box;
     }
     #properties { background: #ececec; }
@@ -128,8 +149,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 40px;  /* reduced from 80px */
-  padding-bottom: 40px; /* reduced from 80px */
+
 }
     .about-container {
       display: flex;
@@ -172,7 +192,7 @@
 #testimonials {
   text-align: center;
   background: #f5f5f5;
-  padding: 60px 10%;
+  padding: 0;
 }
 
 #testimonials h2 {
@@ -182,15 +202,17 @@
 }
 
 .testimonial-hotspot {
-  width: 12px;
-  height: 12px;
-  background: #333;
-  border-radius: 50%;
+  width: 20%;
+  height: 20%;
+  font-size: 100%;
+  background:transparent;
+  border-radius: none;
   margin: 0 auto 20px auto; /* centered below title */
 }
 
 .testimonial-carousel {
   max-width: 700px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   min-height: 180px;
@@ -210,6 +232,7 @@
 
 .testimonial p {
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .testimonial-footer {
@@ -217,6 +240,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+  width: 100%;
 }
 
 .testimonial-footer h4 {
@@ -247,7 +271,7 @@
 /* Mobile adjustments */
 @media (max-width: 720px) {
   #testimonials {
-    padding: 40px 6%;
+    padding: 0;
   }
   #testimonials h2 { font-size: 2rem; }
   .testimonial p { font-size: 1rem; }
@@ -258,14 +282,16 @@
     /* Properties */
  /* Properties */
   #properties {
-    background: #e6e6e6;
+    background: white;
     display: flex;
     flex-direction: column;
-    padding: 60px 10%;
+    padding: 0;
   }
   .properties-header {
     text-align: center;
-    margin-bottom: 40px;
+    font-family: "Cormorant Garamond", serif; 
+    font-weight: 400;
+    font-size: 2rem;
   }
   .properties-header h2 {
     font-size: 2.8rem;
@@ -273,6 +299,7 @@
     color: #111;
   }
   .properties-grid {
+    width:100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -284,11 +311,13 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   }
   .property-image {
-    height: 280px;
+    height: auto;
     background-size: cover;
     background-position: center;
   }
   .property-info {
+    font-family: "Arapey", serif;
+      font-weight: 400;
     display: grid;
     grid-template-areas:
       "name price"
@@ -296,56 +325,74 @@
     padding: 16px 20px;
     font-size: 1.1rem;
     color: #111;
+    text-decoration: none;
   }
   .property-info .name { grid-area: name; font-weight: 700; }
   .property-info .price { grid-area: price; font-weight: 600; text-align: right; }
   .property-info .address { grid-area: address; font-size: 1rem; color: #555; }
-  .property-info .details { grid-area: details; font-size: 1rem; text-align: right; color: #0077b6; cursor: pointer; }
-  
+  .property-info .details { color:black;grid-area: details; font-size: 1rem; text-align: right; cursor: pointer; }
+   .properties-grid a {
+    text-decoration: none;   /* removes underline */
+    color: black;            /* set text color if you want */
+  }
   /* Mobile one-card layout */
   @media (max-width: 720px) {
     .properties-grid { grid-template-columns: 1fr; }
     .property-image { height: 220px; }
   }
     /* Contact */
-    .contact-container {
-      max-width: 800px;
-      width: 100%;
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .contact-container h2 {
-      margin-bottom: 20px;
-      font-size: 2rem;
-      text-align: center;
-    }
-    .contact-container form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    .contact-container input,
-    .contact-container textarea {
-      padding: 12px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      width: 100%;
-    }
-    .contact-container button {
-      background: #333;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    .contact-container button:hover {
-      background: #0077b6;
-    }
+  #contact {
+  padding: 40px 20px;
+  background: #f5f5f5;
+}
+
+/* Heading style (same as About/Testimonials/Properties) */
+.contact-header h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Form layout */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Input styles */
+.contact-form input {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: "Arapey", serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+/* Submit button */
+.contact-form button {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 6px;
+  background: black;
+  color: white;
+  font-family: "Arapey", serif;
+  font-weight: 400;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #333;
+}
+
 
     /* Responsive */
    /* Mobile overrides */
@@ -368,11 +415,12 @@
 
     /* Mobile logo top-left */
     .mobile-logo {
+        max-width: 30%;
       position: absolute;
-      top: 20px;
-      left: 20px;
+      top: 5%;
+      left: 4%;
       font-size: 1.5rem;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0);
       color: white;
       padding: 6px 12px;
       border-radius: 6px;
@@ -382,8 +430,9 @@
     /* Mobile text section */
     .mobile-text {
       position: absolute;
-      bottom: 0;
-      width: 100%;
+      left:10%;
+      bottom: 16%;
+      width: 80%;
       height: 40%;
       display: flex;
       justify-content: center;
@@ -394,7 +443,7 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0);
       z-index: 1;
     }
     .mobile-text .text-content {
@@ -406,12 +455,178 @@
     }
     .mobile-text .text-content h1 {
       font-size: 2rem;
-      margin-bottom: 10px;
+      margin-bottom: 0;;
     }
     .mobile-text .text-content p {
-      font-size: 1.2rem;
-    }
+  font-family: "Adobe Garamond Pro", serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin: 0;
+}
   }
+  @media (max-width: 720px) {
+    
+  .hotspot.small { width: 24px; height: 24px; font-size: 0.7rem; }
+  .hotspot.medium { width: 50px; height: 50px; font-size: 1rem; }
+  .hotspot.large { width: 70px; height: 70px; }
+   .about-container {
+    flex-direction: column;
+    text-align: left; /* default left */
+  }
+
+  .about-left h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-size: 2rem;
+    text-align: center; /* heading centered */
+    margin-bottom: 16px;
+  }
+
+  .about-left p {
+    font-family: "Arapey", serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left; /* paragraph left aligned */
+    margin-bottom: 0;
+  }
+
+  .about-right {
+    margin-top: 2%; /* spacing before image */
+    border-radius: 0;
+  }
+}
+    /*Testimonial phone*/
+    @media(max-width: 720px){
+        .testimonials-section {
+  background: #e0e0e0; /* grey background */
+  padding: 40px 20px;
+  position: relative;
+}
+
+.testimonials-section h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.properties-header h2{
+      font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.testimonial {
+  margin-bottom: 20px;
+}
+
+.testimonial p {
+  font-family: "Arapey", serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+
+}
+
+/* Prev/Next button styling */
+.testimonials-controls {
+  display: flex;
+  justify-content: space-between; /* pushes prev left & next right */
+  margin-top: 20px;
+}
+
+.testimonials-controls button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+    }
+    /* Popup message */
+.popup {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+  padding: 12px;
+  background: #333;
+  color: white;
+  border-radius: 6px;
+  font-family: "Arapey", serif;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.4s ease; /* smooth fade */
+}
+
+.popup.show {
+  display: block;
+  opacity: 1;
+}
+
+
+/* Fullscreen mobile menu (white background, centered) */
+.mobile-menu-white {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertical center */
+  align-items: center;       /* horizontal center */
+  padding: 0;
+  box-sizing: border-box;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.mobile-menu-white.open {
+  right: 0;
+}
+
+/* Close button */
+.mobile-menu-close {
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #111;
+}
+
+/* Menu links */
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;                 /* more spacing for mobile taps */
+  font-size: 1.6rem;
+  width: 100%;
+  text-align: center;
+}
+
+.mobile-menu-links a {
+  color: #111;
+  text-decoration: none;
+  font-family: "Arapey", serif;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.mobile-menu-links a:hover {
+  color: #0077b6;
+}
+
+
   </style>
 </head>
 <body>
@@ -430,7 +645,7 @@
   <div class="hotspot xtralarge desktop-only" style="bottom: 20%; left: 12%;">Name & Tagline</div>
 
   <!-- Mobile logo top-left -->
-  <div class="mobile-logo mobile-only">Logo</div>
+  <div class="mobile-logo mobile-only"><img src="logo.webp" class="logo"></div>
 
   <!-- Mobile Hamburger -->
   <div class="hamburger mobile-only" onclick="openMenu()">☰</div>
@@ -439,26 +654,29 @@
   <div class="mobile-text mobile-only">
     <div class="overlay"></div>
     <div class="text-content">
-      <h1>Welcome to Our Real Estate</h1>
+      <h1><img src="logo.webp" class="logo"></h1>
       <p>Find your dream property today</p>
     </div>
   </div>
 
   <!-- Mobile Fullscreen Menu -->
-  <div id="mobileMenu" class="mobile-menu">
-    <div class="menu-header">
-      <span class="close-btn" onclick="closeMenu()">✕</span>
-    </div>
-    <nav class="menu-links">
-      <a href="#about" onclick="closeMenu()">About</a>
-      <a href="#properties" onclick="closeMenu()">Properties</a>
-      <a href="#testimonials" onclick="closeMenu()">Reviews</a>
-      <a href="#contact" onclick="closeMenu()">Contact</a>
-      <a href="https://facebook.com" target="_blank">Facebook</a>
-      <a href="https://wa.me/" target="_blank">WhatsApp</a>
-      <a href="https://instagram.com" target="_blank">Instagram</a>
-    </nav>
-  </div>
+  <!-- Mobile Fullscreen Menu -->
+<div id="mobileMenu" class="mobile-menu-white">
+  <!-- Close button -->
+  <span class="mobile-menu-close" onclick="closeMenu()">✕</span>
+
+  <!-- Menu links -->
+  <nav class="mobile-menu-links">
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#properties" onclick="closeMenu()">Properties</a>
+    <a href="#testimonials" onclick="closeMenu()">Reviews</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+    <a href="https://wa.me/" target="_blank">WhatsApp</a>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+  </nav>
+</div>
+
   </section>
 
   <!-- About -->
@@ -478,7 +696,7 @@
 <!-- Testimonials Section -->
 <section id="testimonials">
   <h2>Testimonials</h2>
-  <div class="testimonial-hotspot"></div> <!-- small hotspot below title -->
+  <div class="testimonial-hotspot">"</div> <!-- small hotspot below title -->
   <div class="testimonial-carousel">
     <div class="testimonial active">
       <p>"The team was fantastic!"</p>
@@ -510,60 +728,66 @@
 <!-- Properties Section -->
 <!-- Properties -->
 <section id="properties">
-  <div class="properties-header"><h2>Listed Properties</h2></div>
+  <div class="properties-header"><h2>Featured Properties</h2></div>
   <div class="properties-grid">
-    <div class="property-card">
-      <div class="property-image" style="background-image: url('background.webp');"></div>
-      <div class="property-info">
-        <span class="name">Luxury Villa</span>
-        <span class="price">$750,000</span>
-        <span class="address">123 Palm Street</span>
-        <span class="details">View Details</span>
-      </div>
+  <a href="villa.html" class="property-card">
+    <div class="property-image" style="background-image: url('background.webp');"></div>
+    <div class="property-info">
+      <span class="name">Luxury Villa</span>
+      <span class="price">$750,000</span>
+      <span class="address">123 Palm Street</span>
+      <span class="details">View Details</span>
     </div>
-    <div class="property-card">
-      <div class="property-image" style="background-image: url('background.webp');"></div>
-      <div class="property-info">
-        <span class="name">Modern Apartment</span>
-        <span class="price">$350,000</span>
-        <span class="address">456 City Lane</span>
-        <span class="details">View Details</span>
-      </div>
+  </a>
+
+  <a href="apartment.html" class="property-card">
+    <div class="property-image" style="background-image: url('background.webp');"></div>
+    <div class="property-info">
+      <span class="name">Modern Apartment</span>
+      <span class="price">$350,000</span>
+      <span class="address">456 City Lane</span>
+      <span class="details">View Details</span>
     </div>
-    <div class="property-card">
-      <div class="property-image" style="background-image: url('background.webp');"></div>
-      <div class="property-info">
-        <span class="name">Cozy Cottage</span>
-        <span class="price">$250,000</span>
-        <span class="address">789 Country Road</span>
-        <span class="details">View Details</span>
-      </div>
+  </a>
+
+  <a href="cottage.html" class="property-card">
+    <div class="property-image" style="background-image: url('background.webp');"></div>
+    <div class="property-info">
+      <span class="name">Cozy Cottage</span>
+      <span class="price">$250,000</span>
+      <span class="address">789 Country Road</span>
+      <span class="details">View Details</span>
     </div>
-    <div class="property-card">
-      <div class="property-image" style="background-image: url('background.webp');"></div>
-      <div class="property-info">
-        <span class="name">Penthouse Suite</span>
-        <span class="price">$1,200,000</span>
-        <span class="address">101 Skyline Ave</span>
-        <span class="details">View Details</span>
-      </div>
+  </a>
+
+  <a href="penthouse.html" class="property-card">
+    <div class="property-image" style="background-image: url('background.webp');"></div>
+    <div class="property-info">
+      <span class="name">Penthouse Suite</span>
+      <span class="price">$1,200,000</span>
+      <span class="address">101 Skyline Ave</span>
+      <span class="details">View Details</span>
     </div>
+  </a>
+</div>
+
   </div>
 </section>
 
   <!-- Contact -->
-  <section id="contact">
-    <div class="contact-container">
-      <h2>Contact Us</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-      <p style="margin-top:20px; color:#555;">Or reach us at: info@realestate.com | +91 9876543210</p>
-    </div>
-  </section>
+<section id="contact">
+  <div class="contact-header">
+    <h2>Contact Us</h2>
+  </div>
+  <form class="contact-form" id="contactForm">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="popup" class="popup">Submitted! Our team will shortly reach out to you</div>
+</section>
+
 
   <script>
     // Testimonials
@@ -593,6 +817,24 @@
     function closeMenu() {
       document.getElementById("mobileMenu").classList.remove("open");
     }
+
+    const form = document.getElementById('contactForm');
+  const popup = document.getElementById('popup');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // stop form submission
+
+    // clear inputs
+    form.reset();
+
+    // show popup with fade-in
+    popup.classList.add('show');
+
+    // hide popup after 3 seconds
+    setTimeout(() => {
+      popup.classList.remove('show');
+    }, 3000);
+  });
   </script>
 </body>
 </html>
