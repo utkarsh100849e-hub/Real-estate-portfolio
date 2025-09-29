@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+      scroll-behavior: smooth; /* enables smooth scrolling */
+    }
+
+/* Base top bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between; /* align content to right */
+  align-items: center;
+  padding: 15px 20px;
+  background: white;
+  color: black;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+ 
+}
+  .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Desktop nav links */
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links button {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Hamburger hidden on desktop */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Mobile menu (slide in) */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100vh;
+  background: white;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 60px 20px 20px;
+  gap: 20px;
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+.mobile-menu button {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 1.2rem;
+  text-align: left;
+  cursor: pointer;
+}
+.mobile-menu .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: black;
+}
+
+/* Show hamburger + hide nav links on mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+    margin-left:auto;
+  }
+}
+
+    .top-bar button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #fff;
+      color: #222;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .top-bar button:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Intro text */
+    .intro {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: #f9f9f9;
+    }
+
+    .intro h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .intro p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+      line-height: 1.6;
+    }
+    /*req button*/
+    .request-section {
+  background: white;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start; /* aligns button to the right */
+
+}
+
+.request-btn {
+  font-family: 'Poppins', sans-serif;
+  background: white;
+  border: 1px solid black;
+  padding: 10px 20px;  /* left & right padding */
+  font-size: 1rem;
+  font-weight: 300;
+  color: black;
+  cursor: pointer;
+  border-radius: 0; /* no rounded corners */
+  transition: background 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+
+
+
+    /* Image section */
+    .image-container {
+      text-align: center;
+      background-color: white;
+      padding: 30px 0;
+    }
+
+    .image-container img {
+      width: 95%;
+      max-width: 1200px;
+      height: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Text section below image */
+    .text-section {
+  padding: 50px 20px;
+  background-color: white;   /* white background */
+  text-align: left;          /* align text to left */
+  font-family: "adobe-garamond-pro", serif;
+  font-weight: 400;
+}
+
+.text-section h2 {
+  font-size: 2rem;
+
+  margin-bottom: 20px;
+  font-weight: 400;          /* normal weight */
+}
+
+.text-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .text-section {
+    padding: 30px 15px;
+  }
+
+  .text-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .text-section p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .text-section p {
+    font-size: 0.95rem;
+  }
+}
+
+
+    /* Carousel styles */
+    .carousel-heading {
+  background-color: white;
+  text-align: center;               /* center the heading */
+  margin: 30px 0 10px 0;            /* spacing above/below */
+  font-family: "adobe-garamond-pro", serif; /* same font as others */
+}
+
+.carousel-heading h2 {
+  font-size: 2rem;
+  font-weight: 400;                 /* normal weight */
+  color: black;
+  margin: 0;
+}
+.carousel-heading h2::after {
+  content: "";
+  display: block;
+  width: 120px; /* <-- Change separator line width */
+  height: 2px;
+  background: black;
+  margin: 10px auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-heading h2 {
+    font-size: 4.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-heading h2 {
+    font-size: 1.4rem;
+  }
+}
+
+    .carousel-container {
+      position: relative;
+      width: 100vw;
+      overflow: hidden;
+      padding: 50px 0;
+      background-color: white;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      align-items: flex-start;
+      padding-bottom: 20px;
+    }
+
+    .carousel-card {
+      flex: 0 0 40%;
+      margin: 0 10px;
+      border-radius: 0px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.5s ease;
+      background-color: #fff;
+    }
+
+    .carousel-card.center-card {
+      flex: 0 0 60%;
+      transform: scale(1.05);
+    }
+
+    .carousel-card img {
+      width: 100%;
+      display: block;
+      border-radius: 0;
+    }
+
+    .property-info {
+      padding: 10px 15px;
+      text-align: center;
+    }
+
+    .property-info h3 {
+      margin: 5px 0;
+      font-size: 1.2rem;
+    }
+
+    .property-info p {
+      margin: 3px 0;
+      font-size: 1rem;
+      color: #555;
+    }
+    @media (max-width: 768px) {
+  .carousel-container {
+    padding: 30px 0;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .carousel-card {
+    flex: 0 0 100%;  /* each card takes full width */
+    margin: 0;
+    border-radius: 0; /* remove rounded corners */
+  }
+
+  .carousel-card.center-card {
+    transform: scale(1); /* no scaling on mobile */
+  }
+
+  .carousel-card img {
+    width: 100%;
+    border-radius: 0; /* remove rounded corners */
+  }
+
+  .prev, .next {
+    font-size: 2rem;
+    padding: 10px 15px;
+  }
+}
+
+
+    /* Carousel buttons */
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      font-size: 1.8rem;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 1;
+    }
+
+    .prev { left: 20px; }
+    .next { right: 20px; }
+
+    /* features Styles */
+
+.features-section {
+  display: flex;
+  gap: 40px;
+  padding: 50px 20px;
+  background-color: white;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.features-text {
+  flex: 1;
+  min-width: 95%;
+  text-align: center; /* center heading and line */
+  margin:0 auto;
+}
+
+.features-text h2 {
+  font-family: "adobe-garamond-pro", serif;
+  font-weight: 400;
+  color: black;
+  font-size: 3rem;       /* increased size */
+  margin: 0 0 15px 0;
+}
+
+.features-line {
+  width: 140px;            /* longer line */
+  height: 2px;
+  background-color: black;
+  margin: 0 auto 25px auto; /* centered and spacing below heading */
+
+}
+
+.features-text ul {
+  list-style: disc;
+  padding-left: 40px;       /* bullet indentation, left-aligned */
+  text-align: left;         /* ensures bullets are aligned to left */
+}
+
+.features-text ul li {
+  font-family: "adobe-garamond-pro", serif;
+  font-weight: 400;
+  color: rgb(92, 87, 87);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.features-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.features-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 0;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .features-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 15px;
+  }
+
+  .features-image img {
+    max-width: 90%;
+  }
+
+  .features-text h2 {
+    font-size: 6rem;
+  }
+
+  .features-text ul li {
+    font-size: 1rem;
+  }
+
+  .features-line {
+    width: 100px; /* slightly smaller on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .features-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .features-text ul li {
+    font-size: 0.95rem;
+  }
+
+  .features-line {
+    width: 80px;
+  }
+}
+    /*floor plan*/
+.floorplan-section {
+  background-color: white;      /* same white background */
+  text-align: center;           /* center heading and image */
+  padding: 50px 20px;
+}
+
+.floorplan-text h2 {
+  font-family: "adobe-garamond-pro", serif;
+  font-weight: 400;
+  font-size: 3rem;              /* same as Features title */
+  color: black;
+  margin: 0 0 15px 0;
+}
+
+.floorplan-line {
+  width: 140px;                 /* same line width as Features */
+  height: 2px;
+  background-color: black;
+  margin: 0 auto 25px auto;     /* centered below title */
+}
+
+.floorplan-image img {
+  width: 80%;                   /* image width 80% of screen */
+  max-width: 800px;             /* optional maximum width */
+  border-radius: 0;             /* no rounded corners */
+  display: block;
+  margin: 0 auto;               /* center the image */
+  border: solid;
+  border-color: black;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .floorplan-text h2 {
+    font-size: 6rem;
+  }
+
+  .floorplan-line {
+    width: 100px;
+  }
+
+  .floorplan-image img {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .floorplan-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .floorplan-line {
+    width: 80px;
+  }
+
+  .floorplan-image img {
+    width: 95%;
+  }
+}
+
+
+    /* address Section */
+.address-section {
+  background-color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.address-text {
+  max-width: 80%;                 /* width on desktop */
+  margin: 0 auto 30px auto;
+}
+
+.address-text h2 {
+  font-family: "adobe-garamond-pro", serif;
+  font-weight: 400;
+  font-size: 3rem;                 /* same as Features */
+  color: black;
+  margin: 0 0 15px 0;
+}
+
+.address-line {
+  width: 140px;
+  height: 2px;
+  background-color: black;
+  margin: 0 auto 25px auto;
+  
+}
+
+.address-text p {
+  font-family: "adobe-garamond-pro", serif;
+  font-weight: 400;
+  color: rgb(92, 87, 87);
+  font-size: 1.1rem;
+  margin: 0;
+  text-align: left;
+  
+}
+
+.address-image img {
+  width: 80%;                      /* desktop width */
+  max-width: 800px;
+  border-radius: 0;                 /* no rounded corners */
+  display: block;
+  margin: 30px auto 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .address-text {
+    max-width: 90%;
+  }
+
+  .address-text h2 {
+    font-size: 4.5rem;
+  }
+
+  .address-line {
+    width: 100px;
+  }
+
+  .address-text p {
+    font-size: 1rem;
+  }
+
+  .address-image img {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .address-text {
+    max-width: 95%;               /* text width 95% on mobile */
+  }
+
+  .address-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .address-line {
+    width: 80px;
+  }
+
+  .address-text p {
+    font-size: 0.95rem;
+  }
+
+  .address-image img {
+    width: 95%;                   /* image width 95% on mobile */
+  }
+}
+
+    /* General */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1024px) {
+  .carousel-card,
+  .carousel-card.center-card {
+    flex: 0 0 45%; /* 2 cards per row on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Top bar */
+  .top-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Intro text */
+/* Intro section */
+.intro {
+  padding: 50px 20px;
+  background-color: white;   /* always white */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "adobe-garamond-pro", serif; /* global font for intro */
+  border-bottom: 1px solid #ddd;
+}
+
+.intro .label {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgb(133, 133, 136);  /* custom gray */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.intro .property-name {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: black;               /* black */
+  margin: 0;
+}
+
+.intro .details {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: black;               /* black */
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .intro {
+    padding: 30px 15px;
+    gap: 8px;
+  }
+
+  .intro .label {
+    font-size: 0.9rem;
+  }
+
+  .intro .property-name {
+    font-size: 1.8rem;
+  }
+
+  .intro .details {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro .property-name {
+    font-size: 1.5rem;
+  }
+
+  .intro .details {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+
+  /* Carousel → 1 card per row */
+  .carousel-card,
+  .carousel-card.center-card {
+    flex: 0 0 90%;
+    margin: 0 auto;
+  }
+
+  /* Info section stacks vertically */
+  .info-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .info-text, .info-image {
+    flex: 1 1 100%;
+  }
+
+  /* Featured sections */
+  .single-image-section {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro h1 {
+    font-size: 1.5rem;
+  }
+  .intro p, .info-text p {
+    font-size: 0.9rem;
+  }
+  .top-bar button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile menu overlay */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.mobile-menu button {
+  margin: 15px 0;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+/* Book a Visit Section */
+.book-visit {
+  background: white;
+  padding: 40px 20px;
+  text-align: left;
+}
+
+.book-visit h2 {
+  font-family: adobe-garamond-pro, serif;
+  font-weight: 400;
+  font-size: 32px; /* <-- Change title size here */
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.book-visit h2::after {
+  content: "";
+  display: block;
+  width: 120px; /* <-- Change separator line width */
+  height: 2px;
+  background: black;
+  margin: 10px auto;
+}
+
+.form-container {
+  width: 90%;   /* <-- Change overall form width here */
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-container input {
+  font-family: Poppins, sans-serif;
+  font-weight: 300;
+  padding: 12px;      /* <-- Change input height here */
+  width: 100%;        /* <-- Change input width here */
+  border: 1px solid black;
+  background: white;
+  outline: none;
+}
+
+.form-container button {
+  background: white;
+  color: black;
+  border: 1px solid black;
+  padding: 12px 20px;   /* <-- Change button size here */
+  font-family: Poppins, sans-serif;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background: black;
+  color: white;
+}
+/* Success message styles */
+#success-message {
+  display: none; /* hidden by default */
+  margin-top: 15px;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: green;
+}
+
+/* Form Styles */
+.visit-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left; /* Align labels & inputs neatly */
+}
+
+.visit-form input {
+  padding: 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 0;
+  width: 100%;
+}
+
+.visit-form label {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  margin-bottom: -8px; /* bring closer to input */
+  color: rgb(92, 87, 87);
+}
+
+.visit-form button {
+  padding: 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border-radius: 0;
+  margin-top: 10px;
+}
+
+.visit-form button:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .visit-text h2 {
+    font-size: 2.2rem;
+  }
+
+  .visit-line {
+    width: 100px;
+  }
+
+  .visit-text p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .visit-text {
+    max-width: 95%;
+  }
+
+  .visit-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .visit-line {
+    width: 80px;
+  }
+
+  .visit-text p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .top-bar {
+    justify-content: space-between;
+  }
+
+  .top-bar button {
+    display: none; /* hide normal buttons */
+  }
+
+  .hamburger {
+    display: block; /* show hamburger */
+  }
+}
+/* ===== MOBILE MENU LINKS ===== */
+.mobile-menu a {
+  display: block;            /* stack vertically */
+  text-decoration: none;     /* remove underline */
+  color: inherit;            /* same color as normal text */
+  font-family: inherit;      /* match site’s font */
+  font-size: 1.1rem;         /* slightly bigger for readability */
+  padding: 12px 0;           /* spacing between links */
+  background: none;          /* remove button background */
+  border: none;              /* remove any border look */
+  text-align: center;        /* center links in menu */
+  transition: color 0.3s ease;
+  font-family: Poppins, sans-serif;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Top section with buttons -->
+  <div class="top-bar">
+  <div class="nav-links">
+    <button>Home</button>
+    <button>Listings</button>
+    <button>About</button>
+    <button>Contact</button>
+  </div>
+  <div class="hamburger">&#9776;</div>
+</div>
+
+<!-- Slide-in menu -->
+<div class="mobile-menu">
+  <div class="close-btn">&times;</div>
+  <a href="index.html">Home</a>
+  <a href="index.html#about">About Us</a>
+    <a href="index.html#properties">Listings</a>
+  <a href="index.html#testimonials">Reviews</a>
+
+  
+  <a href="index.html#contact">Contact</a>
+</div>
+
+  <!-- Introductory text -->
+  <div class="intro">
+  <p class="label">For Sale</p>
+  <h1 class="property-name">City Lane, San Rafael</h1>
+  <p class="details">4 BEDROOMS • 2.5 BATHROOMS • 2500 SQ FT • OFFERED AT $350,000</p>
+</div>
+  <!-- req button -->
+   <div class="request-section">
+  <a class="request-btn" href="#booking">Request Showing</a>
+</div>
+
+
+  <!-- Image section -->
+  <div class="image-container">
+    <img src="p2/PFP.jpg" alt="Property Image">
+  </div>
+
+  <!-- Text section below image -->
+  <div class="text-section" id="about">
+    <h2>Welcome to 46 City Lane,
+a private yet community-forward home in full awareness of its place perched atop the Marina Highlands.</h2>
+    <p>
+      Perched above a desirable enclave in the Marina Highlands neighborhood, sits a special 1940s split-level property with ever-changing and expansive views, vintage character, and midcentury modern appeal. Bathed in all-day sunlight and framed by tree-lined streets, it’s the kind of home where morning light is cast into sunny corners, where bedroom windows frame canyon views, and where quiet afternoons are spent in awareness of the home and its surroundings.
+
+The heart of this home is its open and flexible living spaces, lined with picture windows and anchored by a clay-tiled fireplace. Two bedrooms and one-and-a-half bathrooms offer comfort and convenience, with period details lovingly preserved throughout. A Merrill & O’Keefe vintage stove, original casement windows, and black-and-white tile flooring in the kitchen nod to the home’s heritage, while the integrative layout provides a spacious and easy flow throughout. 
+
+Multiple outdoor spaces on the street-to-street lot offer a space to feel centered and creative, with plenty of room for gardening, play, and entertaining. A separate, spacious, multi-car garage and workshop, along with basement storage and laundry, add utility and flexibility.
+
+The neighborhood offers both privacy and connection, where kids learn to ride bikes on the street,  where neighbors are out walking their dogs, and where minutes away you’ll find downtown San Rafael, the Marin Yacht Club, Loch Lomond Marina, McNears Beach, the trails at China Camp, and neighborhood favorites like Andy’s Market. Lifestyle, community and convenience - the best of all worlds.
+    </p>
+  </div>
+
+  <!-- Carousel section -->
+   <div class="carousel-heading">
+  <h2>Gallery</h2>
+</div>
+
+  <div class="carousel-container">
+  <button class="prev">&#10094;</button>
+  <div class="carousel-track">
+    <div class="carousel-card">
+      <img src="p2/m1.jpg" alt="Property 1">
+    </div>
+    <div class="carousel-card">
+      <img src="p2/m2.jpg" alt="Property 1">
+    </div>
+    <div class="carousel-card">
+      <img src="p2/m3.jpg" alt="Property 1">
+    </div>
+    <div class="carousel-card">
+      <img src="p2/m4.jpg" alt="Property 1">
+    </div>
+    <div class="carousel-card">
+      <img src="p2/m5.jpg" alt="Property 1">
+    </div>
+    <div class="carousel-card">
+      <img src="p2/m6.jpg" alt="Property 1">
+    </div>
+    <div class="carousel-card">
+      <img src="p2/m7.jpg" alt="Property 1">
+    </div>
+    <div class="carousel-card">
+      <img src="p2/m8.jpg" alt="Property 1">
+    </div>
+    <div class="carousel-card">
+      <img src="p2/m9.jpg" alt="Property 1">
+    </div>
+    
+  </div>
+  <button class="next">&#10095;</button>
+</div>
+
+
+  <!-- Features-->
+  <div class="features-section">
+  <div class="features-text">
+    <h2>Features</h2>
+    <div class="features-line"></div>
+    <ul>
+      <li>2,500 square feet (as per graphic designer and tax records)</li>
+      <li>Four bedrooms and two and a half bathrooms</li>
+      <li>Prime location near schools and markets</li>
+      <li>Energy-efficient lighting and appliances</li>
+      <li>High-quality flooring and finishes</li>
+      <li>Ample parking and security systems</li>
+      
+      <li>Multiple expansive outdoor spaces</li>
+      <li>Connected irrigation</li>
+      <li>Separate multi-car garage and workshop</li>
+      <li>Solar panels are owned</li>
+      <li>Wide,spacious sundecks to enjoy the beautiful vistas</li>
+
+    </ul>
+  </div>
+  <div class="features-image">
+    <img src="p2/m10.jpg" alt="Features Image">
+  </div>
+</div>
+<!--Floor plan-->
+  <div class="floorplan-section">
+  <div class="floorplan-text">
+    <h2>Floor Plan</h2>
+    <div class="floorplan-line"></div>
+  </div>
+  <div class="floorplan-image">
+    <img src="floor8.png" alt="Floor Plan">
+  </div>
+</div>
+
+
+
+<!--Address-->
+<div class="address-section">
+  <div class="address-text">
+    <h2>Address</h2>
+    <div class="address-line"></div>
+    <p>46 City Lane, San Rafael, CA 94901, USA</p>
+  </div>
+  <div class="address-image">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.2384848643215!2d-122.5232393!3d37.9723666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085996c01c9e9b9%3A0xb9eab7d91f26b6d7!2s21%20Marina%20Blvd%2C%20San%20Rafael%2C%20CA%2094901%2C%20USA!5e0!3m2!1sen!2sus!4v1727558400000!5m2!1sen!2sus" 
+      width="100%" 
+      height="300" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+
+
+<!-- Book a Visit Section -->
+<section class="book-visit" id="booking">
+  <h2>Book a Visit</h2>
+  <div class="form-container">
+    <form id="visit-form">
+      <!-- Name -->
+      <input type="text" placeholder="Your Name" required>
+
+      <!-- Phone -->
+      <input type="tel" placeholder="Phone Number" required>
+
+      <!-- Email -->
+      <input type="email" placeholder="Email Address" required>
+
+      <!-- From Date -->
+      <label for="from-date">Date</label>
+      <input type="date" id="from-date" name="from-date" required>
+
+      <!-- To Date -->
+      <label for="to-date">Time</label>
+      <input type="time" id="to-date" name="to-date"  required>
+
+      <!-- Submit -->
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Success Message -->
+    <p id="success-message">✅ Submitted! Our Team will reach out to you shortly.</p>
+  </div>
+</section>
+
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const cards = document.querySelectorAll('.carousel-card');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let index = 1; // center card
+
+    function updateCarousel() {
+  const containerWidth = track.parentElement.offsetWidth;
+  const card = cards[index];
+  const cardWidth = card.offsetWidth;
+  const offset = card.offsetLeft - (containerWidth / 2 - cardWidth / 2);
+  track.style.transform = `translateX(${-offset}px)`;
+
+  cards.forEach(c => c.classList.remove('center-card'));
+  card.classList.add('center-card');
+}
+
+    prevBtn.addEventListener('click', () => {
+      if(index > 0) index--;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if(index < cards.length - 1) index++;
+      updateCarousel();
+    });
+
+    window.addEventListener('resize', updateCarousel);
+    updateCarousel();
+    const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const closeBtn = document.querySelector('.mobile-menu .close-btn');
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.style.right = "0px";
+  });
+
+  closeBtn.addEventListener('click', () => {
+    mobileMenu.style.right = "-100%";
+  });
+  // Handle form submission
+  document.getElementById("visit-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // stop page reload
+
+    // Show success message
+    const msg = document.getElementById("success-message");
+    msg.style.display = "block";
+
+    // Clear form
+    this.reset();
+
+    // Hide message after 3 seconds (optional)
+    setTimeout(() => {
+      msg.style.display = "none";
+    }, 3000);
+  });
+  </script>
+
+</body>
+</html>
