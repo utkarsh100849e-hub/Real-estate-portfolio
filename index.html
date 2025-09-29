@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Add this in your <head> for Font Awesome icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Arapey&family=Cormorant+Garamond&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +15,12 @@
       color: #333;
       scroll-behavior: smooth;
     }
+      section {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 
      /* Hero background full-size, centered */
     .hero {
@@ -132,7 +140,7 @@
 
     /* Sections */
     section {
-      min-height: 100vh;
+    
       display: flex;
       justify-content: center;
       align-items: center;
@@ -196,6 +204,7 @@
 }
 
 #testimonials h2 {
+font-family: "Cormorant Garamond", serif; ;
   font-size: 2.5rem;
   margin-bottom: 10px;
   text-align: center;
@@ -273,7 +282,7 @@
   #testimonials {
     padding: 0;
   }
-  #testimonials h2 { font-size: 2rem; }
+  #testimonials h2 { font-size: 2rem;font-weight: 400; }
   .testimonial p { font-size: 1rem; }
   .testimonial-footer h4 { font-size: 1rem; }
   .testimonial-footer button { padding: 5px 10px; font-size: 0.9rem; }
@@ -625,13 +634,55 @@
 .mobile-menu-links a:hover {
   color: #0077b6;
 }
-
 /* Remove vertical padding for all sections on mobile */
 @media (max-width: 720px) {
   section {
     padding-top: 0;
     padding-bottom: 0;
   }
+}
+@media (max-width: 720px) {
+  section {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    min-height: auto;       /* remove full viewport height */
+    display: block;         /* stop flex centering */
+    justify-content: unset;
+    align-items: unset;
+  }
+
+  /* Optional: for testimonials and contact, make inner content align nicely */
+  #testimonials, #contact {
+    display: block;
+  }
+  
+  #testimonials h2,#properties h2,#contact h2,#about h2{
+    font-size: 3rem;
+  }
+}
+.contact-details i {
+  margin-right: 8px;
+  color: #111;   /* or #000 for pure black */
+}
+.social-icons a {
+  font-size: 1.4rem;   /* controls size */
+  color: #111;         /* controls color */
+  transition: color 0.2s;
+}
+.mobile-menu-links a {
+  color: #111;              /* default text/icon color */
+  text-decoration: none;    /* remove underline */
+}
+
+.mobile-menu-links a:visited,
+.mobile-menu-links a:active,
+.mobile-menu-links a:focus {
+  color: #111;              /* force same color even after clicking */
+}
+
+
   </style>
 </head>
 <body>
@@ -650,7 +701,7 @@
   <div class="hotspot xtralarge desktop-only" style="bottom: 20%; left: 12%;">Name & Tagline</div>
 
   <!-- Mobile logo top-left -->
-  <div class="mobile-logo mobile-only"><img src="logo.webp" class="logo"></div>
+  <div class="mobile-logo mobile-only"><img src="logo1-removebg-preview.png" class="logo"></div>
 
   <!-- Mobile Hamburger -->
   <div class="hamburger mobile-only" onclick="openMenu()">☰</div>
@@ -659,7 +710,7 @@
   <div class="mobile-text mobile-only">
     <div class="overlay"></div>
     <div class="text-content">
-      <h1><img src="logo.webp" class="logo"></h1>
+      <h1><img src="logo1-removebg-preview.png" class="logo"></h1>
       <p>Find your dream property today</p>
     </div>
   </div>
@@ -673,12 +724,20 @@
   <!-- Menu links -->
   <nav class="mobile-menu-links">
     <a href="#about" onclick="closeMenu()">About</a>
-    <a href="#properties" onclick="closeMenu()">Properties</a>
     <a href="#testimonials" onclick="closeMenu()">Reviews</a>
+    <a href="#properties" onclick="closeMenu()">Properties</a>
+    
     <a href="#contact" onclick="closeMenu()">Contact</a>
-    <a href="https://facebook.com" target="_blank">Facebook</a>
-    <a href="https://wa.me/" target="_blank">WhatsApp</a>
-    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="https://wa.me/918102860373" target="_blank">
+  <i class="fab fa-whatsapp"></i> Whatsapp
+</a>
+<a href="https://www.instagram.com/delulululutkarsh_/" target="_blank">
+  <i class="fab fa-instagram"></i> Instagram
+</a>
+<a href="https://www.linkedin.com/in/utkarsh-363476298/" target="_blank">
+  <i class="fab fa-linkedin"></i> Linkedin
+</a>
+
   </nav>
 </div>
 
@@ -689,11 +748,11 @@
     <div class="about-container">
       <div class="about-left">
         <h2>About Us</h2>
-        <p>Welcome to our real estate website! We specialize in helping you find 
-        the perfect property to match your lifestyle...</p>
-      </div>
+        <p>Utkarsh is a top performing Bay Area Realtor ranking in the Top 1.5% of Agents Nationwide. His commitment to the client experience has proven that the concept of wellness can also be applied to buying or selling a home</p>
+        <p>Ranking in the top 1.5% of Agents in the U.S. and in the top 5% of Realtors in San Francisco by production volume, Utkarsh has sold over $150M worth of real estate during his tenure in the Bay Area. However, it’s Utkarsh’ unfailing sincerity that has made him such a highly sought after agent. Imbued with a special gift for crystalizing a client’s unique priorities, he truly wants to see clients land their dream home. As one former client raved, “Utkarsh turned out to be our golden ticket.”</p>
+    </div>
       <div class="about-right">
-        <img src="background.webp" alt="About Us">
+        <img src="pfp.jpg" alt="About Us">
       </div>
     </div>
   </section>
@@ -701,29 +760,53 @@
 <!-- Testimonials Section -->
 <section id="testimonials">
   <h2>Testimonials</h2>
-  <div class="testimonial-hotspot">"</div> <!-- small hotspot below title -->
+  
   <div class="testimonial-carousel">
     <div class="testimonial active">
-      <p>"The team was fantastic!"</p>
+      <p>"Working with Utkarsh was an absolute pleasure. He understood exactly what we wanted and helped us find the perfect property in no time. Highly recommended!"</p>
       <div class="testimonial-footer">
         <button onclick="prevTestimonial()">&#10094; Prev</button>
-        <h4>- Sarah K.</h4>
+        <h4>- Rohit S.</h4>
         <button onclick="nextTestimonial()">Next &#10095;</button>
       </div>
     </div>
     <div class="testimonial">
-      <p>"Professional and reliable service."</p>
+      <p>"Exceptional service and guidance throughout the entire process. Utkarsh made our property search smooth and stress-free. We couldn’t be happier!"</p>
       <div class="testimonial-footer">
         <button onclick="prevTestimonial()">&#10094; Prev</button>
-        <h4>- John D.</h4>
+        <h4>- Anjali P.</h4>
         <button onclick="nextTestimonial()">Next &#10095;</button>
       </div>
     </div>
     <div class="testimonial">
-      <p>"Amazing experience!"</p>
+      <p>"Very knowledgeable and responsive. Utkarsh helped us make an informed decision and provided great support every step of the way."</p>
       <div class="testimonial-footer">
         <button onclick="prevTestimonial()">&#10094; Prev</button>
         <h4>- Priya S.</h4>
+        <button onclick="nextTestimonial()">Next &#10095;</button>
+      </div>
+    </div>
+     <div class="testimonial">
+      <p>"A truly professional experience! From property listings to negotiations, Utkarsh’s expertise made the process seamless."</p>
+      <div class="testimonial-footer">
+        <button onclick="prevTestimonial()">&#10094; Prev</button>
+        <h4>- Meera R.</h4>
+        <button onclick="nextTestimonial()">Next &#10095;</button>
+      </div>
+    </div>
+     <div class="testimonial">
+      <p>"Highly recommended for anyone looking to invest in real estate. Utkarsh’s insights and professionalism make all the difference."</p>
+      <div class="testimonial-footer">
+        <button onclick="prevTestimonial()">&#10094; Prev</button>
+        <h4>- Priya D.</h4>
+        <button onclick="nextTestimonial()">Next &#10095;</button>
+      </div>
+    </div>
+     <div class="testimonial">
+      <p>"Utkarsh goes above and beyond to meet client expectations. His attention to detail and dedication are unmatched."</p>
+      <div class="testimonial-footer">
+        <button onclick="prevTestimonial()">&#10094; Prev</button>
+        <h4>- Akash M.</h4>
         <button onclick="nextTestimonial()">Next &#10095;</button>
       </div>
     </div>
@@ -735,42 +818,42 @@
 <section id="properties">
   <div class="properties-header"><h2>Featured Properties</h2></div>
   <div class="properties-grid">
-  <a href="villa.html" class="property-card">
-    <div class="property-image" style="background-image: url('background.webp');"></div>
+  <a href="prop1.html" class="property-card">
+    <div class="property-image" style="background-image: url('p1/PFP.webp');"></div>
     <div class="property-info">
       <span class="name">Luxury Villa</span>
       <span class="price">$750,000</span>
-      <span class="address">123 Palm Street</span>
+      <span class="address">21 Marina Blvd</span>
       <span class="details">View Details</span>
     </div>
   </a>
 
-  <a href="apartment.html" class="property-card">
-    <div class="property-image" style="background-image: url('background.webp');"></div>
+  <a href="prop2.html" class="property-card">
+    <div class="property-image" style="background-image: url('p2/PFP.jpg');"></div>
     <div class="property-info">
       <span class="name">Modern Apartment</span>
       <span class="price">$350,000</span>
-      <span class="address">456 City Lane</span>
+      <span class="address">46 City Lane</span>
       <span class="details">View Details</span>
     </div>
   </a>
 
-  <a href="cottage.html" class="property-card">
-    <div class="property-image" style="background-image: url('background.webp');"></div>
+  <a href="prop3.html" class="property-card">
+    <div class="property-image" style="background-image: url('p3/PFP1.jpg');"></div>
     <div class="property-info">
       <span class="name">Cozy Cottage</span>
       <span class="price">$250,000</span>
-      <span class="address">789 Country Road</span>
+      <span class="address">32 Country Road</span>
       <span class="details">View Details</span>
     </div>
   </a>
 
-  <a href="penthouse.html" class="property-card">
-    <div class="property-image" style="background-image: url('background.webp');"></div>
+  <a href="prop4.html" class="property-card">
+    <div class="property-image" style="background-image: url('p4/PFP.jpg');"></div>
     <div class="property-info">
       <span class="name">Penthouse Suite</span>
       <span class="price">$1,200,000</span>
-      <span class="address">101 Skyline Ave</span>
+      <span class="address">23 Skyline Ave</span>
       <span class="details">View Details</span>
     </div>
   </a>
@@ -784,13 +867,32 @@
   <div class="contact-header">
     <h2>Contact Us</h2>
   </div>
+
+  <!-- Details Section -->
+  <div class="contact-details">
+    <p><i class="fas fa-phone"></i> +91 8102860373</p>
+    <p><i class="fas fa-envelope"></i> utkarsh100849e@gmail.com</p>
+    <div class="social-icons">
+      <a href="https://wa.me/918102860373" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/delulululutkarsh_/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/utkarsh-363476298/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p><i class="fas fa-map-marker-alt"></i> 21 Marina Blvd, San Rafael, CA 94901, USA</p>
+  </div>
+
+  <!-- Subheading line -->
+  <p class="contact-subheading" style="text-align: center;">We’d love to connect — share your information and we’ll reach out soon.</p>
+
+  <!-- Form -->
   <form class="contact-form" id="contactForm">
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="tel" name="phone" placeholder="Phone Number" required>
     <input type="email" name="email" placeholder="Email Address" required>
     <button type="submit">Submit</button>
   </form>
-  <div id="popup" class="popup">Submitted! Our team will shortly reach out to you</div>
+
+  <!-- Popup -->
+  <div id="popup" class="popup">Submitted! Our team will shortly reach out to you.</div>
 </section>
 
 
@@ -843,4 +945,3 @@
   </script>
 </body>
 </html>
-
